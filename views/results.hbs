@@ -2,10 +2,15 @@
 <div id='tableContainer'>
     <table>
         <thead>
-            <th>Class</th><th>Win Percent</th>
+            <th>Class</th><th>Win Percent</th><th>Plays</th><th>Wins</th>
         </thead>
+            <tr><td>Overall</td><td>{{overallPercent}}</td><td>{{overallPlays}}</td><td>{{overallWins}}</td>
         {{#each content}}
-            <tr><td>{{@key}}</td><td>{{this}}</td></tr>
+            <tr><td>{{@key}}</td>
+            {{#each this}}
+                <td>{{this}}</td>
+            {{/each}}
+            </tr>
         {{/each}}
     </table>
 </div>

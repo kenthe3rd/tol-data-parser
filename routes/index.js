@@ -20,13 +20,16 @@ router.post('/results', (req, res) => {
                 var wins = data['StatsStartClass' + TOLclass + 'WinCountWIP'];
                 var plays = data['StatsStartClass' + TOLclass + 'PlayCountWIP'];
                 if( wins !== null && plays !== null ){
-                    output[TOLclass] = "% " + Number.parseFloat(wins/plays * 100).toPrecision(4);
+                    output[TOLclass] = ["% " + Number.parseFloat(wins/plays * 100).toPrecision(4), plays, wins];
                 }
             }
         }
     }
     res.render('results', {
-        content : output
+        content : output,
+        overallPercent: "% " + Number.parseFloat(data['statsWinsWIP']/data['statsGamesPlayedWIP'] * 100).toPrecision(4),
+        overallPlays: data['statsGamesPlayedWIP'],
+        overallWins: data['statsWinsWIP']
     });
 })
 
