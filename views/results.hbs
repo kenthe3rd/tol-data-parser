@@ -1,0 +1,11 @@
+<h1>Throne of Lies Data Tool</h1>
+<div id='tableContainer'>
+    <table>
+        <thead>
+            <th>Class</th><th>Win Percent</th>
+        </thead>
+        {{#each content}}
+            <tr><td>{{@key}}</td><td>{{this}}</td></tr>
+        {{/each}}
+    </table>
+</div>
