@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/results', (req, res) => {
-    console.log(req.files);
     var data = req.files['upload']['data'];
     data = data.toString('utf8');
     data = data.substring(1);
